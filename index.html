@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting System Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1>Voting System Dashboard</h1>
+            <div class="header-controls">
+                <button id="exportBtn" class="btn btn--secondary">Export to Excel</button>
+                <button id="resetBtn" class="btn btn--outline">Reset Data</button>
+            </div>
+        </header>
+
+        <nav class="tab-nav">
+            <button id="workingSheetTab" class="tab-btn tab-btn--active">Working Sheet</button>
+            <button id="dashboardTab" class="tab-btn">Dashboard</button>
+        </nav>
+
+        <!-- Working Sheet Tab -->
+        <div id="workingSheet" class="tab-content tab-content--active">
+            <div class="working-sheet-header">
+                <h2>Vote Input Sheet</h2>
+                <div class="category-limits">
+                    <div class="limit-card">
+                        <span class="category-name">A (1995)</span>
+                        <span class="limit-display">
+                            <span id="usedA">0</span> / <span class="max-votes">94</span>
+                        </span>
+                        <div class="progress-bar">
+                            <div id="progressA" class="progress-fill"></div>
+                        </div>
+                    </div>
+                    <div class="limit-card">
+                        <span class="category-name">B (1695)</span>
+                        <span class="limit-display">
+                            <span id="usedB">0</span> / <span class="max-votes">300</span>
+                        </span>
+                        <div class="progress-bar">
+                            <div id="progressB" class="progress-fill"></div>
+                        </div>
+                    </div>
+                    <div class="limit-card">
+                        <span class="category-name">C (1495)</span>
+                        <span class="limit-display">
+                            <span id="usedC">0</span> / <span class="max-votes">391</span>
+                        </span>
+                        <div class="progress-bar">
+                            <div id="progressC" class="progress-fill"></div>
+                        </div>
+                    </div>
+                    <div class="limit-card">
+                        <span class="category-name">D (13XX)</span>
+                        <span class="limit-display">
+                            <span id="usedD">0</span> / <span class="max-votes">647</span>
+                        </span>
+                        <div class="progress-bar">
+                            <div id="progressD" class="progress-fill"></div>
+                        </div>
+                    </div>
+                    <div class="limit-card">
+                        <span class="category-name">E (1030)</span>
+                        <span class="limit-display">
+                            <span id="usedE">0</span> / <span class="max-votes">6</span>
+                        </span>
+                        <div class="progress-bar">
+                            <div id="progressE" class="progress-fill"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="voting-grid">
+                <div class="grid-header">
+                    <div class="header-cell">Candidate</div>
+                    <div class="header-cell">A (1995)<br><small>Weight: 1.870</small></div>
+                    <div class="header-cell">B (1695)<br><small>Weight: 1.574</small></div>
+                    <div class="header-cell">C (1495)<br><small>Weight: 1.398</small></div>
+                    <div class="header-cell">D (13XX)<br><small>Weight: 1.261</small></div>
+                    <div class="header-cell">E (1030)<br><small>Weight: 1.000</small></div>
+                    <div class="header-cell">Total Votes</div>
+                    <div class="header-cell">Weighted Score</div>
+                </div>
+                <div id="votingRows"></div>
+            </div>
+        </div>
+
+        <!-- Dashboard Tab -->
+        <div id="dashboard" class="tab-content">
+            <div class="dashboard-header">
+                <h2>Results Dashboard</h2>
+                <div class="summary-stats">
+                    <div class="stat-card">
+                        <h3>Total Votes Cast</h3>
+                        <span id="totalVotesCast" class="stat-value">0</span>
+                        <span class="stat-max">/ 1438</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Categories Used</h3>
+                        <span id="categoriesUsed" class="stat-value">0</span>
+                        <span class="stat-max">/ 5</span>
+                    </div>
+                    <div class="stat-card">
+                        <h3>Top Candidate Score</h3>
+                        <span id="topScore" class="stat-value">0.0</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="dashboard-content">
+                <div class="rankings-section">
+                    <div class="card">
+                        <div class="card__body">
+                            <h3>Candidate Rankings</h3>
+                            <div id="rankingsTable" class="rankings-table"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="charts-section">
+                    <div class="chart-row">
+                        <div class="chart-container card">
+                            <div class="card__body">
+                                <h3>Weighted Scores by Candidate</h3>
+                                <div class="chart-wrapper" style="position: relative; height: 300px;">
+                                    <canvas id="scoresChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="chart-row">
+                        <div class="chart-container card">
+                            <div class="card__body">
+                                <h3>Vote Distribution by Category</h3>
+                                <div class="chart-wrapper" style="position: relative; height: 300px;">
+                                    <canvas id="distributionChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="chart-container card">
+                            <div class="card__body">
+                                <h3>Category Utilization</h3>
+                                <div class="chart-wrapper" style="position: relative; height: 300px;">
+                                    <canvas id="utilizationChart"></canvas>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
