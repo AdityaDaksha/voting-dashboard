@@ -11,17 +11,18 @@ class VotingSystem {
         };
 
         this.candidates = [
-            "Candidate 1", "Candidate 2", "Candidate 3", "Candidate 4", "Candidate 5", 
-            "Candidate 6", "Candidate 7", "Candidate 8", "Candidate 9", "Candidate 10",
-            "Candidate 11", "Candidate 12", "Candidate 13", "Candidate 14", "Candidate 15", "Candidate 16"
+            "Abhishek Tiwari", "Ajay Jaitly", "Amit Singh", "Arijit Ghosh", 
+            "Mahendra Singh Yadav", "Milan Saxena", "Mukesh Kumar Gupta", "Nisha Singh", 
+            "Rajendra Kumar Gupta", "Rakesh Kumar Singh","Sanjay Taneja", "Saurabh C Verma", 
+            "Sumit Manocha", "S.C. Bisht", "Vibhor Gupta", "Yogendra Bajaj"
         ];
 
         // Initialize with balanced sample data
         this.originalVotes = [
-            [5, 18, 24, 40, 1], [8, 15, 23, 35, 0], [6, 20, 20, 30, 1], [3, 16, 25, 28, 0],
-            [7, 19, 22, 35, 0], [4, 22, 18, 32, 0], [9, 12, 26, 25, 1], [2, 25, 20, 30, 0],
-            [8, 14, 28, 38, 0], [5, 20, 16, 42, 0], [1, 17, 30, 20, 1], [10, 18, 15, 33, 0],
-            [3, 21, 27, 26, 0], [6, 13, 24, 40, 0], [4, 24, 14, 29, 0], [1, 19, 22, 31, 0]
+            [0,0,0,0,0], [0,0,0,0,0], [0,0,0,0,0], [0,0,0,0,0],
+            [0,0,0,0,0], [0,0,0,0,0], [0,0,0,0,0], [0,0,0,0,0],
+            [0,0,0,0,0], [0,0,0,0,0], [0,0,0,0,0], [0,0,0,0,0],
+            [0,0,0,0,0], [0,0,0,0,0], [0,0,0,0,0], [0,0,0,0,0]
         ];
 
         this.votes = JSON.parse(JSON.stringify(this.originalVotes));
