@@ -182,7 +182,7 @@ class VotingSystem {
                     <span class="total-votes" id="total-${index}">${this.getTotalVotes(index)}</span>
                 </div>
                 <div class="score-cell">
-                    <span class="weighted-score" id="score-${index}">${this.getWeightedScore(index).toFixed(2)}</span>
+                    <span class="weighted-score" id="score-${index}">${this.getWeightedScore(index).toFixed(3)}</span>
                 </div>
             `;
             votingRows.appendChild(row);
@@ -273,7 +273,7 @@ class VotingSystem {
         const scoreElement = document.getElementById(`score-${candidateIndex}`);
         
         if (totalElement) totalElement.textContent = this.getTotalVotes(candidateIndex);
-        if (scoreElement) scoreElement.textContent = this.getWeightedScore(candidateIndex).toFixed(2);
+        if (scoreElement) scoreElement.textContent = this.getWeightedScore(candidateIndex).toFixed(3);
     }
 
     updateCategoryLimits() {
@@ -380,7 +380,7 @@ class VotingSystem {
             row.innerHTML = `
                 <div class="rank-number">${rank + 1}</div>
                 <div class="rank-candidate">${candidate.name}</div>
-                <div class="rank-score">${candidate.score.toFixed(2)}</div>
+                <div class="rank-score">${candidate.score.toFixed(3)}</div>
             `;
             rankingsTable.appendChild(row);
         });
@@ -595,7 +595,7 @@ class VotingSystem {
                 const totalVotes = this.getTotalVotes(index);
                 const weightedScore = this.getWeightedScore(index);
                 
-                csvContent += `${candidate},${votes.join(',')},${totalVotes},${weightedScore.toFixed(2)}\n`;
+                csvContent += `${candidate},${votes.join(',')},${totalVotes},${weightedScore.toFixed(3)}\n`;
             });
 
             // Add summary
