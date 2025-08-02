@@ -11,10 +11,10 @@ class VotingSystem {
         };
 
         this.candidates = [
-            "Abhishek Tiwari", "Ajay Jaitly", "Amit Singh", "Arijit Ghosh", 
-            "Mahendra Singh Yadav", "Milan Saxena", "Mukesh Kumar Gupta", "Nisha Singh", 
-            "Rajendra Kumar Gupta", "Rakesh Kumar Singh","Sanjay Taneja", "Saurabh C Verma", 
-            "Sumit Manocha", "S.C. Bisht", "Vibhor Gupta", "Yogendra Bajaj"
+            "Abhishek Tiwari (1)", "Ajay Jaitly (2)", "Amit Singh (3)", "Arijit Ghosh (4)", 
+            "Mahendra Singh Yadav (5)", "Milan Saxena (6)", "Mukesh Kumar Gupta (7)", "Nisha Singh (8)", 
+            "Rajendra Kumar Gupta (9)", "Rakesh Kumar Singh (10)","Sanjay Taneja (11)", "Saurabh C Verma (12)", 
+            "Sumit Manocha (13)", "S.C. Bisht (14)", "Vibhor Gupta (15)", "Yogendra Bajaj (16)"
         ];
 
         // Initialize with balanced sample data
